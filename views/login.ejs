@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%=titlemsg%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="imagess/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fontss/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fontss/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendors/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendors/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendors/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendors/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendors/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="csss/util.css">
+    <link rel="stylesheet" type="text/css" href="csss/main.css">
+
+
+
+  </head>
+  <body>
+
+
+
+<div class="limiter">
+
+  <div class="container-login100" style="background-image: url('imagess/bg-02.jpg');">
+    <div class="wrap-login100 p-t-30 p-b-50">
+      <span class="login100-form-title p-b-41">
+        Account Login
+      </span>
+      <form class="login100-form validate-form p-b-33 p-t-5" action="/login" method="post" >
+
+       <div class="container">
+       <%if(messages.success){%>
+       <div class="success alert alert-success">
+         <%=messages.success%>
+       </div>
+       <%}%>
+
+
+       <%if(messages.failure){%>
+       <div class="danger alert alert-danger">
+       <%=messages.failure%>
+       </div>
+       <%}%>
+       </div>
+        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+          <input class="input100" type="text" name="username" placeholder="User name">
+          <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input class="input100" type="password" name="password" placeholder="Password">
+          <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+        </div>
+
+        <div class="container-login100-form-btn m-t-32">
+          <button class="login100-form-btn">
+            Login
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!--===============================================================================================-->
+<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendors/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendors/bootstrap/js/popper.js"></script>
+<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendors/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendors/daterangepicker/moment.min.js"></script>
+<script src="vendors/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendors/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="jss/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

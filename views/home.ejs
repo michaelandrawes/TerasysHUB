@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%=titlemsg%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+
+  </head>
+  <body>
+    <header>
+     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+       <a class="navbar-brand" href="/">TerasysHUB</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+         <ul class="navbar-nav mr-auto">
+          <!-- <%if(user){%>
+           <li class="nav-item active">
+             <a class="nav-link " href="/">TerasysHUB<span class="sr-only">(current)</span></a>
+           </li>
+          <%}%> -->
+           <%if(user){%>
+            <%if(user.username==='TeraSysHUB'){%>
+           <li class="nav-item">
+             <a class="nav-link" href="/register">Register</a>
+           </li>
+           <%}%>
+          <%}%>
+          <% if(!user){%>
+           <li class="nav-item">
+             <a class="nav-link" href="/login">Login</a>
+           </li>
+          <%}%>
+         </ul>
+        <ul class="navbar-nav navbar-right">
+          <%if(user){%>
+          <li><a class="nav-link" href="/logout">LogOut</a></li>
+        <%}%>
+        </ul>
+       </div>
+     </nav>
+   </header>
+   <br><br><br>
+<div class="container">
+  <%if(messages.success){%>
+  <div class="success alert alert-success">
+    <%=messages.success%>
+  </div>
+  <%}%>
+
+
+<h1>TerasysHUB</h1>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-sm-12">
+      <canvas id="myChart" ></canvas>
+    </div>
+    <div class="col-lg-2">
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Devices
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/">Sugar Land,Texas</a>
+            <a class="dropdown-item" href="/netop">Netop PoC Board</a>
+            <a class="dropdown-item" href="/Slovenia">Slovenia</a>
+            <a class="dropdown-item" href="/office">office board</a>
+            <a class="dropdown-item" href="/OfficeBoard">Office Board</a>
+            <a class="dropdown-item" href="/newly">Newly created device</a>
+            <a class="dropdown-item" href="/newlyCreated">Newly created device</a>
+            <a class="dropdown-item" href="/Tobi">Tobi's Board</a>
+            <a class="dropdown-item" href="/updated">Updated</a>
+            <a class="dropdown-item" href="/OfficeNew">Office New</a>
+
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10">
+<canvas id="humidity" ></canvas>
+    </div>
+  </div>
+
+</div>
+
+
+
+</div>
+<script>
+  let myChart= document.getElementById('myChart').getContext('2d');
+  Chart.defaults.global.defaultFontFamily='lato';
+  Chart.defaults.global.defaultFontSize=10;
+  Chart.defaults.global.defaultFontColor='#777';
+  let massPopChart=new Chart(myChart,{
+    type:'bar',
+    data:{
+      labels:['11/18 19:45','11/18 19:50','11/18 19:55','11/18 20:00','11/18 20:05','11/18 20:10','11/18 20:15','11/18 20:20','6/12 23:00','6/12 23:05'],
+      datasets:[{
+        label:'Temperature',
+        data:[],
+        backgroundColor:[
+'rgba(226, 0, 0,0.6)'
+        ],
+        borderWidth:1,
+        borderColor:'#777',
+        hoverBorderWidth:3,
+        hoverBorderColor:'#000'
+      }]
+    },
+    options:{title:{
+      display:true,
+      text:'Sugar Land,Texas',
+      fontSize:25
+    },
+    legend:{
+      position:'left',
+      labels:{
+        fontColor:'#000'
+      }
+    },
+    layout:{
+      padding:{
+        left:50,
+        right:0,
+        bottom:0,
+        top:0
+      }
+    }
+  }
+  });
+
+  let humidity= document.getElementById('humidity').getContext('2d');
+
+  let massPopHumidity=new Chart(humidity,{
+    type:'bar',
+    data:{
+      labels:['11/18 19:45','11/18 19:50','11/18 19:55','11/18 20:00','11/18 20:05','11/18 20:10','11/18 20:15','11/18 20:20','6/12 23:00','6/12 23:05'],
+      datasets:[{
+        label:'Humidity',
+        data:[],
+        backgroundColor:[
+'rgba(0, 86, 173,0.6)'
+        ],
+        borderWidth:1,
+        borderColor:'rgba(0, 86, 173,0.6)',
+        hoverBorderWidth:3,
+        hoverBorderColor:'#000'
+      }]
+    },
+    options:{title:{
+      display:false,
+      text:'Sugar Land,Texas',
+      fontSize:25
+    },
+    legend:{
+      position:'left',
+      labels:{
+        fontColor:'#000'
+      }
+    },
+    layout:{
+      padding:{
+        left:50,
+        right:0,
+        bottom:0,
+        top:0
+      }
+    }
+  }
+  });
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
