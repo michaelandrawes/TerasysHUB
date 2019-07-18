@@ -77,13 +77,13 @@ app.get('*',function(req,res,next){
 
 
 app.get("/",function(req,res){
- if (req.isAuthenticated()) {
+// if (req.isAuthenticated()) {
 
     res.render("home",{titlemsg:"Home"});
 
-  }else {
-    res.redirect("/login");
-    }
+  //}else {
+    //res.redirect("/login");
+    //}
 });
 
 app.get("/netop",function(req,res){
