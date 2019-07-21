@@ -1,4 +1,5 @@
 # TerasysHUB
+this project to show the Temperature and Humidity.
 public folder contains all styles, images,fonts,and JavaScript
 Views folder contains all views.ejs (embeded javascript)
 app.js contains all code of backend
